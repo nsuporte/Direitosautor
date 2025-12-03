@@ -11,7 +11,7 @@ class Categoria(models.Model):
 
 class Obra(models.Model):
     autor = models.ForeignKey(User,on_delete=models.CASCADE,related_name='obras')
-    titulo = models.CharField(max_length=300,null=False)
+    titulo = models.CharField(max_length=300,null=False,unique=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE,related_name='obras')
     descricao = models.TextField(max_length=600)
     criado_em = models.DateTimeField(auto_now_add=True)
@@ -31,7 +31,7 @@ class Registo(models.Model):
     criado_em = models.DateTimeField(auto_now_add=True)
     nota = models.TextField(max_length=600)
 
-    agente = models.ForeignKey(User,on_delete=models.CASCADE,related_name='agente_registrador')
+    agente = models.ForeignKey(User,on_delete=models.SET_NULL,null=True,blank=True,related_name='agente_registrador')
 
     def __str__(self):
         return f"Registo {self.numero_registo} - {self.obra.titulo}"
