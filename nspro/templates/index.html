@@ -9,31 +9,33 @@
 </head>
 
 <body>
-    <h1>Obras</h1>
-
-    <table class="table">
-        <thead class="table-dark">
-            <tr>
-                <th>Titulo</th>
-                <th>Categoria</th>
-                <th>Autor</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for obra in obras %}
-            <tr>
-                <td>
-                    {{ obra.titulo }}
-                    <small class="text-muted d-block">{{ obra.descricao }}</small>
-                </td>
-                <td class="align-middle">{{ obra.categoria }}</td>
-                <td class="align-middle">{{ obra.autor }}</td>
-                <td></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
+    <div class="container">
+        <ol class="breadcrumb my-4">
+            <li class="breadcrumb-item active">Obras</li>
+        </ol>
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Titulo</th>
+                    <th>Categoria</th>
+                    <th>Autor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for obra in obras %}
+                <tr>
+                    <td>
+                        {{ obra.titulo }}
+                        <small class="text-muted d-block">{{ obra.descricao }}</small>
+                    </td>
+                    <td class="align-middle">{{ obra.categoria }}</td>
+                    <td class="align-middle">{{ obra.autor }}</td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
